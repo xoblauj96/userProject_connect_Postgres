@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center align-items-center bg-light" style="height: 100vh;">
+  <div class="card" style="width: 30rem; border-top-left-radius: 40px; border-bottom-right-radius: 40px;">
+    <div class="card-body d-flex justify-content-center flex-column align-items-center">
+
+      <h5 class="card-title">LOGIN</h5>
+      <div class="container mt-5 d-flex flex-column align-items-center justify-content-start">
+
+        <div>
+          <div class="mb-2 row">
+            <label for="email" class="form-label">Email</label>
+            <div class="col-sm-12">
+              <input type="text" class="form-control" id="email" [(ngModel)]='user.userName'>
+            </div>
+          </div>
+          <div class="mb-2 row">
+            <label for="password" class="form-label">Password</label>
+            <div class="col-sm-12">
+              <input type="password" class="form-control" id="password" [(ngModel)]='user.password'>
+            </div>
+          </div>
+          <div class="row mb-5 ml-5">
+            <div class="col ml-10">
+              <button type="submit" (click)="login()" class="btn btn-success btn-w">login</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

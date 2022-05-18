@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="container mt-5">
+
+  <div class="row">
+    <div class="col-md-4 col-sm-12 col-12">
+      <app-adduser [user]="currentItem"></app-adduser>
+    </div>
+    <div class="col-md-8 col-sm-12 col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">username</th>
+            <th scope="col">phoneNumber</th>
+            <th>edit</th>
+            <th>delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of userArray">
+            <td>{{user.id}}</td>
+            <td>{{user.userName}}</td>
+            <td>{{user.phoneNumber}}</td>
+            <td><button (click)="edit(user)" class="btn btn-warning">edit</button></td>
+            <td><button (click)="delete(user.id)" class="btn btn-danger">delete</button></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
