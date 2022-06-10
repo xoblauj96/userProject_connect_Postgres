@@ -52,18 +52,20 @@ export class ProductController {
     static async listjoin2(req: Request, res: Response) {
         try {
             const limit = req.query.limit ? Number(req.query.limit) : 5;
-            const skip = req.query.skip ? Number(req.query.skip) : '1';
+            const skip = req.query.skip ? Number(req.query.skip) : 0;
 
+            console.log('limit: ' + limit + ' skip: ' + skip);
+            
             ProductypeEntity.hasMany(ProductEntity);
             ProductEntity.belongsTo(ProductypeEntity);
 
             UserEntity.hasMany(ProductEntity);
             ProductEntity.belongsTo(UserEntity);
-            ProductEntity.findAndCountAll({ include: [ProductypeEntity, UserEntity],order:[['id','DESC']]  }).then(r => {
+            ProductEntity.findAndCountAll({ include: [ProductypeEntity, UserEntity], order: [['id', 'DESC']], limit: limit, offset: skip * limit}).then(r => {
                 const x = r.rows.map((v) => {
                     const u = APIService.clone(v);
                     delete u['UserXYZ']?.password;
-                        // u['image'] = ProductController.paths+u['image'];
+                    // u['image'] = ProductController.paths+u['image'];
                     return u as ProductModel;
                 })
 

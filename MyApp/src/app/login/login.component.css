@@ -1,0 +1,10 @@
+.card-title{
+    font-size: 50px; font-weight: 500; letter-spacing: 8px;
+}
+.btn-w{
+    width: 100%;
+}
+.input-w{
+    background: red;
+    width: 100%;
+}

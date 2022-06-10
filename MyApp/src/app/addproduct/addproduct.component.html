@@ -1,0 +1,48 @@
+<div class="row g-3 needs-validation" novalidate>
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label">Product name</label> 
+      <input type="text" [(ngModel)]="this.product.product_name" class="form-control" id="validationCustom01" value="Mark" required>
+
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustom02" class="form-label">Price</label>
+      <input type="text" [(ngModel)]="this.product.price" class="form-control" id="validationCustom02" value="Otto" required>
+
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustomUsername" class="form-label">qty</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text" id="inputGroupPrepend"> <img src="../../assets/user.jpeg" alt="" srcset="" width="10px" height="10px"></span>
+        <input type="text" [(ngModel)]="this.product.qty" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+
+      </div>
+    </div>
+    
+    <div class="col-md-3">
+      <label for="validationCustom04" class="form-label">product type</label>
+      <select [(ngModel)]="this.product.tbproducttypeId"  class="form-select" id="validationCustom04" required (change)="changes($event.target.value)">
+        <option selected disabled value="">Choose...</option>
+        <option *ngFor="let proty of protyArray" value="{{proty.id}}">{{proty.proty_name}}</option>
+        
+      </select>
+      
+    </div>
+    <div class="col-md-4">
+      <label for="validationCustom05" class="form-label">image</label>
+      <input type="file" class="form-control"  accept="image/*" id="validationCustom05" required (change)="selectImage($event)">
+
+    </div>
+    <div class="col-md-4" *ngIf="this.showImage">
+        <label for="validationCustom05" class="form-label">image</label> <br>
+        <img src="{{showImage}}" alt="" srcset="" width="100px" height="100px">
+      </div>
+  
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit" (click)="save()">Submit form</button>
+    </div>
+</div>
+
+  
+
+ 
+

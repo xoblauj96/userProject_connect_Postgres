@@ -84,7 +84,7 @@ dbConnection.authenticate().then(r => {
 
 
     app.post("/product_type/selectTypeid", ProductController.selectTypeid);
-
+ 
 
 console.log("===> ",app);
  
